@@ -2,15 +2,17 @@ import 'package:flutter/material.dart';
 
 class CustomizedContainer extends StatelessWidget {
   const CustomizedContainer({
-    required this.width,
+    this.width,
     required this.height,
     required this.color,
+    this.child,
     //this.circleRadius = 35,
     Key? key}) : super(key: key);
 
   final double height;
-  final double width;
+  final double? width;
   final Color color;
+  final Widget? child;
   //final double? circleRadius;
 
   @override
@@ -26,7 +28,8 @@ class CustomizedContainer extends StatelessWidget {
           bottomLeft: Radius.circular(5),
           topRight: Radius.circular(5)
         ),
-        )
+        ),
+        child: child,
     );
   }
 }

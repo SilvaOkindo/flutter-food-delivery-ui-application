@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:foodie_ui/screens/home_page.dart';
+import 'package:foodie_ui/screens/main_page.dart';
+import 'package:foodie_ui/widgets/customized_container.dart';
 
 class LandingPage extends StatelessWidget {
   const LandingPage({Key? key}) : super(key: key);
@@ -20,18 +21,10 @@ class LandingPage extends StatelessWidget {
               )
             ),
           ),
-          Container(
+          CustomizedContainer(
             height: 220,
             width: 380,
-            decoration: const BoxDecoration(
-              color: Colors.black26,
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(30),
-                bottomRight: Radius.circular(30),
-                  bottomLeft: Radius.circular(5),
-                  topRight: Radius.circular(5)
-              ),
-            ),
+            color: Colors.black26,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -61,38 +54,30 @@ class LandingPage extends StatelessWidget {
                   ),
                 ),
 
-                InkWell(
-                  onTap: () => {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(builder: (_) {
-                        return const HomePage();
-                      })
-                    )
-                  },
-                  child: Container(
-                    height: 50,
-                    width: 250,
-                    decoration: const BoxDecoration(
-                      color: Colors.orange,
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(30),
-                          bottomRight: Radius.circular(30),
-                          bottomLeft: Radius.circular(5),
-                          topRight: Radius.circular(5)
-                      ),
-                  ),
-                    child: const Center(
-                      child: Text(
-                        "Let's go",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18
-                        ),
-                      ),
-                    ),
-                  ),
-                )
+             InkWell(
+               onTap: () => {
+                 Navigator.of(context).push(
+                   MaterialPageRoute(builder: (_) {
+                     return const MainPage();
+                   })
+                 )
+               },
+               child: const CustomizedContainer(
+                   width: 250,
+                   height: 50,
+                   color: Colors.orange,
+                   child: Center(
+                     child: Text(
+                         "Let's go",
+                       style: TextStyle(
+                         fontSize: 18,
+                         color: Colors.white,
+                         fontWeight: FontWeight.bold
+                       ),
+                     ),
+                   ),
+               ),
+             )
               ],
             ),
           )
